@@ -17,6 +17,12 @@ Route::get('home', 'HomeController@index');
 
 Route::get('all','HomeController@allUsers');
 
+Route::resource('user', 'UserController');
+Route::resource('student', 'StudentController');
+Route::resource('lecturer', 'LecturerController');
+Route::resource('department', 'DepartmentController');
+Route::resource('result', 'ResultController');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
