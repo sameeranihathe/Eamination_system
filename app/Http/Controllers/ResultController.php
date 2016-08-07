@@ -3,7 +3,11 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
 class ResultController extends Controller {
 
@@ -81,4 +85,22 @@ class ResultController extends Controller {
 		//
 	}
 
+
+	public function search()
+	{
+		$keywords=Input::get('keywords');
+
+		$users=User::all();
+
+		$searchUsers=new Collection();
+
+		foreach($users as $user)
+		{
+			if(Str::contains(Str::lower($user->name),Str::lower($keywords)))
+				$searchUsers->add($user);
+		}
+
+		return view('search',compact('searchUsers'));
+
+	}
 }

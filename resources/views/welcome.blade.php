@@ -1,47 +1,22 @@
 <html>
 	<head>
 		<title>Laravel</title>
-		
-		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				color: #B0BEC5;
-				display: table;
-				font-weight: 100;
-				font-family: 'Lato';
-			}
-
-			.container {
-				text-align: center;
-				display: table-cell;
-				vertical-align: middle;
-			}
-
-			.content {
-				text-align: center;
-				display: inline-block;
-			}
-
-			.title {
-				font-size: 96px;
-				margin-bottom: 40px;
-			}
-
-			.quote {
-				font-size: 24px;
-			}
-		</style>
+		<script src="{{ asset('/js/search.js') }}"></script>
 	</head>
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Laravel 5</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
+				<div class="form-group">
+					<label for="name" class="col-sm-2" control-label">Label:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="" id="search-input" onkeydown="down()" onkeyup="up()" placeholder="Input...">
+					</div>
+				</div>
+
+				<div class="alert alert-info" id="search-result">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>Title!</strong> Alert body ...
+				</div>
 			</div>
 		</div>
 	</body>
